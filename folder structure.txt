@@ -1,7 +1,8 @@
-# إنشاء هيكل المجلدات
+
+# Create the directory structure
 mkdir -p ha-cluster-ansible/{inventories/production,roles,playbooks}
 
-# نسخ الملفات حسب الهيكل أعلاه
+# Copy the files according to the structure above
 
-# تشغيل Playbook
+# Run the Playbook
 ansible-playbook -i inventories/production/hosts playbooks/setup-cluster.yml -kK
