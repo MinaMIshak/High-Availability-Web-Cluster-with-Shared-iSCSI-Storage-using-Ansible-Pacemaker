@@ -1,0 +1,16 @@
+ha-cluster-ansible/
+├── inventories/
+│   └── production/
+│       ├── hosts
+│       └── group_vars/
+│           └── all.yml
+├── roles/
+│   ├── common/
+│   ├── iscsi-target/
+│   ├── iscsi-initiator/
+│   ├── pacemaker/
+│   ├── galera/
+│   └── webapp/
+└── playbooks/
+    ├── setup-cluster.yml
+    └── test-failover.yml

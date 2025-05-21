@@ -1,0 +1,15 @@
+# roles/webapp/tasks/main.yml
+- name: Install Apache
+  ansible.builtin.yum:
+    name: httpd
+    state: present
+
+- name: Configure virtual IP
+  ansible.builtin.include_role:
+    name: linux-system-roles.ha_cluster
+  vars:
+    ha_cluster_resources:
+      - id: ClusterIP
+        type: IPaddr2
+        params:
+          ip: "{{ cluster_vip }}"

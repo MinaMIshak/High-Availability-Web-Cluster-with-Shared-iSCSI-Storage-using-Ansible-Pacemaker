@@ -1,0 +1,32 @@
+---
+- name: Configure HA Cluster
+  hosts: all
+  become: yes
+  roles:
+    - role: common
+    - role: iscsi-initiator
+      when: "'iscsi_target' not in group_names"
+
+- name: Configure iSCSI Target
+  hosts: iscsi_target
+  become: yes
+  roles:
+    - role: iscsi-target
+
+- name: Configure Pacemaker Cluster
+  hosts: cluster_nodes
+  become: yes
+  roles:
+    - role: pacemaker
+
+- name: Configure Galera Cluster
+  hosts: cluster_nodes
+  become: yes
+  roles:
+    - role: galera
+
+- name: Configure Web App
+  hosts: cluster_nodes
+  become: yes
+  roles:
+    - role: webapp

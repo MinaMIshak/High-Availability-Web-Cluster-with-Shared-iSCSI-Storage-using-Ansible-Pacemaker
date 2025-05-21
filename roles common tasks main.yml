@@ -1,0 +1,28 @@
+# roles/common/tasks/main.yml
+- name: Update all packages
+  ansible.builtin.yum:
+    name: '*'
+    state: latest
+
+- name: Set hostname
+  ansible.builtin.hostname:
+    name: "{{ inventory_hostname }}"
+
+- name: Configure /etc/hosts
+  ansible.builtin.lineinfile:
+    path: /etc/hosts
+    line: "{{ item }}"
+  loop:
+    - "192.168.184.132 pcs-node1.local"
+    - "192.168.184.133 pcs-node2.local"
+    - "192.168.184.134 pcs-node3.local"
+
+- name: Disable SELinux
+  ansible.builtin.selinux:
+    state: disabled
+
+- name: Stop and disable firewalld
+  ansible.builtin.service:
+    name: firewalld
+    state: stopped
+    enabled: no

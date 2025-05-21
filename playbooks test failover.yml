@@ -1,0 +1,10 @@
+# playbooks/test-failover.yml
+---
+- name: Test Cluster Failover
+  hosts: cluster_nodes
+  become: yes
+  tasks:
+    - name: Simulate node failure
+      ansible.builtin.command:
+        cmd: pcs stonith fence {{ inventory_hostname }}
+      when: inventory_hostname == "pcs-node1.local"

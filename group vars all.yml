@@ -1,0 +1,6 @@
+---
+cluster_name: mycluster
+cluster_vip: 192.168.184.150
+iscsi_target_ip: 192.168.184.132
+iscsi_initiator_iqn: iqn.2022-01.world.srv:node01.initiator01
+sbd_device: /dev/disk/by-id/scsi-360014050314f1e990cd41d09a6d28bde-part1

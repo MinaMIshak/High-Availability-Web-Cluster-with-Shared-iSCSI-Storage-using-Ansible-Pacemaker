@@ -1,0 +1,27 @@
+# roles/pacemaker/tasks/main.yml
+- name: Install pacemaker and corosync
+  ansible.builtin.yum:
+    name:
+      - pcs
+      - fence-agents-all
+    state: present
+
+- name: Enable and start pcsd
+  ansible.builtin.service:
+    name: pcsd
+    state: started
+    enabled: yes
+
+- name: Set hacluster password
+  ansible.builtin.user:
+    name: hacluster
+    password: "{{ 'password' | password_hash('sha512') }}"
+
+- name: Configure SBD fencing
+  ansible.builtin.include_role:
+    name: linux-system-roles.ha_cluster
+  vars:
+    ha_cluster_sbd_enabled: true
+    ha_cluster_sbd_options:
+      - name: watchdog-timeout
+        value: 30

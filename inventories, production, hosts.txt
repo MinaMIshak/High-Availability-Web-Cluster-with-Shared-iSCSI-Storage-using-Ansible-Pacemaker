@@ -1,0 +1,7 @@
+[cluster_nodes]
+pcs-node1.local ansible_host=192.168.184.132
+pcs-node2.local ansible_host=192.168.184.133
+pcs-node3.local ansible_host=192.168.184.134
+
+[iscsi_target]
+pcs-node1.local

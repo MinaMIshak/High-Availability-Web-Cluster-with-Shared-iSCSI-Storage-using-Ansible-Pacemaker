@@ -1,0 +1,14 @@
+# roles/iscsi-initiator/tasks/main.yml
+- name: Install iscsi-initiator-utils
+  ansible.builtin.yum:
+    name: iscsi-initiator-utils
+    state: present
+
+- name: Configure initiator name
+  ansible.builtin.lineinfile:
+    path: /etc/iscsi/initiatorname.iscsi
+    line: "InitiatorName={{ iscsi_initiator_iqn }}"
+
+- name: Login to iSCSI target
+  ansible.builtin.command:
+    cmd: iscsiadm -m node -p {{ iscsi_target_ip }} --login

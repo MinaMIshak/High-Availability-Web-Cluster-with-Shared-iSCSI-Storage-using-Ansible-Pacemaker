@@ -1,0 +1,9 @@
+# roles/iscsi-target/tasks/main.yml
+- name: Install targetcli
+  ansible.builtin.yum:
+    name: targetcli
+    state: present
+
+- name: Create disk image
+  ansible.builtin.command:
+    cmd: targetcli /backstores/fileio create disk01 /var/lib/iscsi_disks/disk01.img 2G
