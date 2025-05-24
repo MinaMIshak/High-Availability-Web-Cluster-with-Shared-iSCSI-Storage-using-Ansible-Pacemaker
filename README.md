@@ -1,5 +1,5 @@
 
-# 🔗 High Availability Web Cluster with iSCSI Storage – Powered by Ansible
+# 🔗 High-Availability-Web-Cluster-with-Shared-iSCSI-Storage-using-Ansible-Pacemaker
 
 This project demonstrates a fully automated setup of a **High Availability Web Cluster** using **Ansible**, integrating **Pacemaker**, **Corosync**, and **iSCSI shared storage**. It ensures continuous service availability through failover and fencing mechanisms.
 
