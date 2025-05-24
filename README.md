@@ -132,17 +132,4 @@ The homepage displays:
 
 ---
 
-## 📄 License
 
-This project is intended for educational purposes only and licensed under MIT.  
-Feel free to fork and extend for personal or academic use.
-
----
-
-## 🙏 Acknowledgments
-
-Special thanks to our supervisor **Eng. Azza Khalil** for her guidance, and to all the team members for their contributions.
-
----
-
-> Built with ❤️ by future DevOps engineers.
